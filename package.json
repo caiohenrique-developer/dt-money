@@ -1,0 +1,67 @@
+{
+  "name": "dt-money",
+  "description": "🤑 One application to control your transactions",
+  "repository": "https://github.com/caiohenrique-developer/dt-money.git",
+  "bugs": {
+    "url": "https://github.com/caiohenrique-developer/dt-money/issues"
+  },
+  "author": "Caio Henrique <caiohenrique.developer@gmail.com> (https://github.com/caiohenrique-developer)",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "keywords": [],
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "./.cz-config.js"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "commitizen": "^4.2.3",
+    "cz-customizable": "^6.3.0",
+    "husky": "^5.2.0",
+    "typescript": "^4.1.2"
+  }
+}
