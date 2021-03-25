@@ -15,6 +15,7 @@ export const GlobalStyles = createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
+        border: 0;
         box-sizing: border-box;
         outline: none;
         
@@ -31,9 +32,9 @@ export const GlobalStyles = createGlobalStyle`
         body, input, textarea, button { font-weight: 400; }
 
         body {
-            background: Var(--background);
+            background: var(--background);
         
-            bottom { cursor: pointer; }
+            button { cursor: pointer; }
 
             [disabled] {
                 opacity: 0.6;
