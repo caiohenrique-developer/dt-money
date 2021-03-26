@@ -1,14 +1,19 @@
-import appLogo from '../../assets/logo.svg'
+import appLogo from '../../assets/logo.svg';
 
-import { Container, Content } from './styles'
+import { Container, Content } from './styles';
 
-export function Header() {
+interface HeaderProps { onNewTransactionModal: () => void; }
+
+export function Header({ onNewTransactionModal }: HeaderProps) {
     return (
         <Container>
             <Content>
                 <img src={appLogo} alt="DT Money logotipo"/>
 
-                <button type="button">Nova transação</button>
+                <button
+                    type="button"
+                    onClick={onNewTransactionModal}
+                >Nova transação</button>
             </Content>
         </Container>
     )
