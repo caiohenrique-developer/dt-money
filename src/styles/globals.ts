@@ -11,6 +11,8 @@ export const GlobalStyles = createGlobalStyle`
         --blue-light:#6933ff;
         --blue:#5429cc;
         --red:#e52e4d;
+        --border:#d7d7d7;
+        --input-bkg:#e7e9ee;
     }
 
     * {
@@ -66,6 +68,21 @@ export const GlobalStyles = createGlobalStyle`
                 background: var(--background);
                 padding: 3rem;
                 border-radius: 0.24rem;
+            }
+
+            .react-close-icon {
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+
+                font-size: 0;
+                background: transparent;
+                transition: .2s;
+
+                &:hover {
+                    transform: rotate(270deg);
+                    filter: brightness(0.5);
+                }
             }
         }
     }
