@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { darken } from 'polished';
+
+import { darken, transparentize } from 'polished';
 
 export const Container = styled.form`
     h2 {
@@ -48,7 +49,15 @@ export const TransactionTypeContainer = styled.div`
     margin: 1rem 0;
 `
 
-interface ButtonProps { isActive: boolean; }
+interface ButtonProps {
+    isActive: boolean;
+    colorActive: 'green' | 'red';
+}
+
+const colors = {
+    green: '#33cc95',
+    red: '#e52e4d'
+}
 
 export const RadioButton = styled.button<ButtonProps>`
     display: flex;
@@ -56,12 +65,23 @@ export const RadioButton = styled.button<ButtonProps>`
     justify-content: center;
 
     height: 4rem;
-    border: 1px solid #d7d7d7;
+    border: 1px solid ${(props) => props.isActive
+        ? transparentize(1, colors[props.colorActive])
+        : '#d7d7d7'
+    };
     border-radius: 0.25rem;
-    background: ${props => props.isActive ? '#d7d7d778' : 'transparent'};
+    background: ${(props) => props.isActive
+        ? transparentize(0.9, colors[props.colorActive])
+        : 'transparent'
+    };
     transition: .3s;
 
-    &:hover { border-color: ${darken(0.2, '#d7d7d7')}; }
+    &:hover {
+        border-color: ${(props) => props.isActive
+            ? darken(0.1, colors[props.colorActive])
+            : '#d7d7d7'
+        };
+    }
 
     img {
         width: 20px;
