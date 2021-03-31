@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { TransactionsContext } from "../../TransactionsContext";
 import { api } from '../../services/api'
 import { Container } from "./styles";
 
@@ -12,6 +13,8 @@ interface TransactionProps {
 }
 
 export function TransactionsTable() {
+    const data = useContext(TransactionsContext);
+
     const [transactions, setTransactions] = useState<TransactionProps[]>([]);
 
     const valueFormat = Intl.NumberFormat('pt-BR', {
