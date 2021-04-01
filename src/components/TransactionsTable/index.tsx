@@ -5,9 +5,6 @@ import { Container } from "./styles";
 export function TransactionsTable() {
     const { transactions } = useContext(TransactionsContext);
     
-    console.log('TransactionsTable');
-    console.log(transactions);
-    
     const valueFormat = Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL'
