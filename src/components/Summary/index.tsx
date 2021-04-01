@@ -7,7 +7,10 @@ import outcomeIcon from '../../assets/outcome.svg'
 import totalIcon from '../../assets/total.svg'
 
 export function Summary() {
-    const transactions = useContext(TransactionsContext);
+    const { transactions } = useContext(TransactionsContext);
+    
+    console.log('Summary');
+    console.log(transactions);
     
     return (
         <Container>

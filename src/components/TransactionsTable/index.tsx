@@ -3,7 +3,10 @@ import { TransactionsContext } from "../../TransactionsContext";
 import { Container } from "./styles";
 
 export function TransactionsTable() {
-    const transactions = useContext(TransactionsContext);
+    const { transactions } = useContext(TransactionsContext);
+    
+    console.log('TransactionsTable');
+    console.log(transactions);
     
     const valueFormat = Intl.NumberFormat('pt-BR', {
         style: 'currency',
@@ -33,7 +36,7 @@ export function TransactionsTable() {
                                     {
                                         type === 'withdraw'
                                         ? `- ${valueFormat.format(amount)}`
-                                        : valueFormat.format(amount)
+                                        : `+ ${valueFormat.format(amount)}`
                                     }
                                 </td>
                                 <td>{category}</td>
