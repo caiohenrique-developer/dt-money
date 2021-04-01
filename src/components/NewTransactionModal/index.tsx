@@ -21,10 +21,16 @@ export function NewTransactionModal({ isOpen, onRequestClose }: ModalProps) {
     const [amount, setAmount] = useState(0);
     const [category, setCategory] = useState('');
     
-    function handleCreateNewTransaction(ev: FormEvent) {
+    async function handleCreateNewTransaction(ev: FormEvent) {
         ev.preventDefault();
 
-        createTransaction({ type, title, category, amount });
+        await createTransaction({ type, title, category, amount });
+
+        setType('deposit');
+        setTitle('');
+        setAmount(0);
+        setCategory('');
+        onRequestClose();
     }
     
     return (

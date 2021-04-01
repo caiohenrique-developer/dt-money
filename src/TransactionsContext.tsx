@@ -16,7 +16,7 @@ interface ChildrenProps { children: ReactNode; }
 
 interface TransactionContextValue {
     transactions: TransactionProps[];
-    createTransaction(transaction: CreateTransactionProps): void;
+    createTransaction(transaction: CreateTransactionProps): Promise<void>;
 }
 
 export const TransactionsContext = createContext<TransactionContextValue>({} as TransactionContextValue);
@@ -29,7 +29,13 @@ export function TransactionsProvider({ children }: ChildrenProps) {
         .then((response) => { setTransactions(response.data.transactions); });
     }, []);
     
-    const createTransaction = (transaction: CreateTransactionProps) => { api.post('transactions', transaction); }
+    const createTransaction = async (createTransaction: CreateTransactionProps) => {
+        const { data } = await api.post('transactions', { ...createTransaction, createdAt: new Date() });
+
+        const { transaction } = data;
+        
+        setTransactions([ ...transactions, transaction ]);
+    }
     
     return (
         <TransactionsContext.Provider value={{ transactions, createTransaction }}>
