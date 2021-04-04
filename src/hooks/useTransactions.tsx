@@ -1,23 +1,11 @@
-import { createContext, ReactNode, useEffect, useState, useContext } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
 import { api } from "../services/api";
-
-interface TransactionProps {
-    id: number;
-    type: string;
-    title: string;
-    amount: number;
-    category: string;
-    createdAt: string;
-}
-
-type CreateTransactionProps = Omit<TransactionProps, 'id' | 'createdAt'>
-
-interface ChildrenProps { children: ReactNode; }
-
-interface TransactionContextValue {
-    transactions: TransactionProps[];
-    createTransaction(transaction: CreateTransactionProps): Promise<void>;
-}
+import {
+    TransactionProps,
+    CreateTransactionProps,
+    ChildrenProps,
+    TransactionContextValue
+} from '../utils/dataTypes/hooks';
 
 const TransactionsContext = createContext<TransactionContextValue>({} as TransactionContextValue);
 

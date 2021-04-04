@@ -1,9 +1,10 @@
 import { useTransactions } from '../../hooks/useTransactions';
+import { currencyFormat } from '../../utils/dataFormat';
 import { Container } from "./styles";
 
-import incomeIcon from '../../assets/income.svg'
-import outcomeIcon from '../../assets/outcome.svg'
-import totalIcon from '../../assets/total.svg'
+import incomeIcon from '../../assets/income.svg';
+import outcomeIcon from '../../assets/outcome.svg';
+import totalIcon from '../../assets/total.svg';
 
 export function Summary() {
     const { transactions } = useTransactions();
@@ -31,12 +32,7 @@ export function Summary() {
                     <p>Entradas</p>
                     <img src={incomeIcon} alt="Ícone de entradas"/>
                 </header>
-                <strong>
-                    {Intl.NumberFormat('pt-BR', {
-                        style: 'currency',
-                        currency: 'BRL'
-                    }).format(summary.deposit)}
-                </strong>
+                <strong>{currencyFormat(summary.deposit)}</strong>
             </div>
 
             <div>
@@ -44,12 +40,7 @@ export function Summary() {
                     <p>Saídas</p>
                     <img src={outcomeIcon} alt="Ícone de saídas"/>
                 </header>
-                <strong>
-                    {Intl.NumberFormat('pt-BR', {
-                        style: 'currency',
-                        currency: 'BRL'
-                    }).format(summary.withdraw)}
-                </strong>
+                <strong>{currencyFormat(summary.withdraw)}</strong>
             </div>
 
             <div className="highlight-background">
@@ -57,12 +48,7 @@ export function Summary() {
                     <p>Total</p>
                     <img src={totalIcon} alt="Ícone de cifrão"/>
                 </header>
-                <strong>
-                    {Intl.NumberFormat('pt-BR', {
-                        style: 'currency',
-                        currency: 'BRL'
-                    }).format(summary.total)}
-                </strong>
+                <strong>{currencyFormat(summary.total)}</strong>
             </div>
         </Container>
     )

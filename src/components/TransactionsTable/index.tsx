@@ -1,16 +1,10 @@
 import { useTransactions } from "../../hooks/useTransactions";
+import { currencyFormat, dateFormat } from '../../utils/dataFormat';
 import { Container } from "./styles";
 
 export function TransactionsTable() {
     const { transactions } = useTransactions();
-    
-    const valueFormat = Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-    });
 
-    const dateFormat = Intl.DateTimeFormat('pt-BR');
-    
     return (
         <Container>
             <table>
@@ -31,8 +25,8 @@ export function TransactionsTable() {
                                 <td className={type}>
                                     {
                                         type === 'withdraw'
-                                        ? `- ${valueFormat.format(amount)}`
-                                        : `+ ${valueFormat.format(amount)}`
+                                        ? `- ${currencyFormat(amount)}`
+                                        : `+ ${currencyFormat(amount)}`
                                     }
                                 </td>
                                 <td>{category}</td>

@@ -1,8 +1,8 @@
+import { HeaderProps } from '../../utils/dataTypes/components';
+
 import appLogo from '../../assets/logo.svg';
 
 import { Container, Content } from './styles';
-
-interface HeaderProps { onNewTransactionModal: () => void; }
 
 export function Header({ onNewTransactionModal }: HeaderProps) {
     return (
